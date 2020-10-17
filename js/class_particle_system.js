@@ -108,12 +108,12 @@ class ParticleSystem {
       yOffset += noiseStep;
     }
 
-    var particleCount = this.particles.size();
+    var particleCount = this.particles.length;
     var particleIndex = 0;
 
-    while (this.coordsIndexes.size() > 0) {
+    while (this.coordsIndexes.length > 0) {
       // Pick a random coordinate
-      var randomIndex = int(random(0, this.coordsIndexes.size()));
+      var randomIndex = int(random(0, this.coordsIndexes.length));
       var coordIndex = this.coordsIndexes.get(randomIndex);
       this.coordsIndexes.remove(randomIndex);
 
