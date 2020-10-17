@@ -98,7 +98,7 @@ class ParticleSystem {
 
         if (r >= POSITIVE_THRESHOLD) {
           if (random(1) <= DENSITY) {
-            this.coordsIndexes.add(x + y * WIDTH);
+            this.coordsIndexes.push(x + y * WIDTH);
           }
         }
 
@@ -218,7 +218,7 @@ class ParticleSystem {
         break;
     }
 
-    this.particles.add(newParticle);
+    this.particles.push(newParticle);
   }
 
   //-------------------------------------------------------------------//
