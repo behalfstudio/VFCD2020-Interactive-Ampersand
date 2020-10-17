@@ -121,7 +121,7 @@ class ParticleSystem {
       var y = coordIndex / WIDTH;
 
       if (particleIndex < particleCount) {
-        var p = this.particles.get(particleIndex);
+        var p = this.particles[particleIndex];
         p.isDestroyed = false;
 
         p.target.x = x;
