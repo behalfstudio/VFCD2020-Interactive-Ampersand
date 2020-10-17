@@ -60,7 +60,7 @@ class ParticleSystem {
       case CULTURE:
       case HERITAGE:
       case INNOVATION:
-        this.bgColor = COLORS[theme][0];
+        this.bgColor = COLORS[this.theme][0];
         break;
 
       case COMMUNITY:
@@ -98,7 +98,7 @@ class ParticleSystem {
 
         if (r >= POSITIVE_THRESHOLD) {
           if (random(1) <= DENSITY) {
-            coordsIndexes.add(x + y * WIDTH);
+            this.coordsIndexes.add(x + y * WIDTH);
           }
         }
 
@@ -108,20 +108,20 @@ class ParticleSystem {
       yOffset += noiseStep;
     }
 
-    var particleCount = particles.size();
+    var particleCount = this.particles.size();
     var particleIndex = 0;
 
-    while (coordsIndexes.size() > 0) {
+    while (this.coordsIndexes.size() > 0) {
       // Pick a random coordinate
-      var randomIndex = int(random(0, coordsIndexes.size()));
-      var coordIndex = coordsIndexes.get(randomIndex);
-      coordsIndexes.remove(randomIndex);
+      var randomIndex = int(random(0, this.coordsIndexes.size()));
+      var coordIndex = this.coordsIndexes.get(randomIndex);
+      this.coordsIndexes.remove(randomIndex);
 
       var x = coordIndex % WIDTH;
       var y = coordIndex / WIDTH;
 
       if (particleIndex < particleCount) {
-        var p = particles.get(particleIndex);
+        var p = this.particles.get(particleIndex);
         p.isDestroyed = false;
 
         p.target.x = x;
@@ -136,7 +136,7 @@ class ParticleSystem {
     // Kill off any leftover particles
     if (particleIndex < particleCount) {
       for (var i = particleIndex; i < particleCount; i++) {
-        var p = particles.get(i);
+        var p = this.particles.get(i);
         p.destroy();
       }
     }
@@ -165,16 +165,16 @@ class ParticleSystem {
     var maxSpeed = random(MIN_SPEED, MAX_SPEED);
     var maxForce = newParticle.maxSpeed * MAX_FORCE_RATIO;
 
-    var particleColor = COLORS[particleTheme][0];
-
     var particleTheme;
     if (theme < 3) {
       particleTheme = theme;
+      var particleColor = COLORS[particleTheme][0];
       if (random(1) >= DOMINANT_COLOR_PROB_THEME) {
         particleColor = COLORS[particleTheme][int(random(2))];
       }
     } else {
       particleTheme = int(random(theme));
+      var particleColor = COLORS[particleTheme][0];
       if (random(1) >= DOMINANT_COLOR_PROB_COMBINED) {
         particleColor = COLORS[particleTheme][int(random(2))];
       }
@@ -218,7 +218,7 @@ class ParticleSystem {
         break;
     }
 
-    particles.add(newParticle);
+    this.particles.add(newParticle);
   }
 
   //-------------------------------------------------------------------//
