@@ -114,8 +114,8 @@ class ParticleSystem {
     while (this.coordsIndexes.length > 0) {
       // Pick a random coordinate
       var randomIndex = int(random(0, this.coordsIndexes.length));
-      var coordIndex = this.coordsIndexes.get(randomIndex);
-      this.coordsIndexes.remove(randomIndex);
+      var coordIndex = this.coordsIndexes[randomIndex];
+      this.coordsIndexes.splice(randomIndex, 1);
 
       var x = coordIndex % WIDTH;
       var y = coordIndex / WIDTH;
@@ -136,7 +136,7 @@ class ParticleSystem {
     // Kill off any leftover particles
     if (particleIndex < particleCount) {
       for (var i = particleIndex; i < particleCount; i++) {
-        var p = this.particles.get(i);
+        var p = this.particles[i];
         p.destroy();
       }
     }
