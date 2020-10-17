@@ -8,6 +8,8 @@ var ps;
 
 var currentTheme;
 
+var WHITE, BLACK, OFF_WHITE, TRANSPARENT, LIGHT_GRAY;
+
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
@@ -23,11 +25,11 @@ function setup() {
 
   var img = loadImage(AMPERSAND_IMG_DIRECTORY + 0 + ".jpg");
 
-  var WHITE = color(255);
-  var BLACK = color(0);
-  var OFF_WHITE = color("#F6F5EE");
-  var TRANSPARENT = color(0, 0);
-  var LIGHT_GRAY = color(230);
+  WHITE = color(255);
+  BLACK = color(0);
+  OFF_WHITE = color("#F6F5EE");
+  TRANSPARENT = color(0, 0);
+  LIGHT_GRAY = color(230);
 
   currentTheme = getCurrentTheme();
 
