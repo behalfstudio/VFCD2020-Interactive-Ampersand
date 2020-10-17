@@ -15,17 +15,16 @@ var WHITE, BLACK, OFF_WHITE, TRANSPARENT, LIGHT_GRAY;
 //-------------------------------------------------------------------//
 
 function preload() {
-  for (var i = 0; i < AMPERSAND_COUNT; i++) {}
+  for (var i = 0; i < AMPERSAND_COUNT; i++) {
+    var img = loadImage(AMPERSAND_IMG_DIRECTORY + 0 + ".jpg");
+    ampersandImages.push(img);
+  }
 }
-
-var img;
 
 //-------------------------------------------------------------------//
 
 function setup() {
   createCanvas(WIDTH, HEIGHT);
-
-  img = loadImage(AMPERSAND_IMG_DIRECTORY + 0 + ".jpg");
 
   WHITE = color(255);
   BLACK = color(0);
