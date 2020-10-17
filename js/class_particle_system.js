@@ -166,15 +166,17 @@ class ParticleSystem {
     var maxForce = newParticle.maxSpeed * MAX_FORCE_RATIO;
 
     var particleTheme;
-    if (theme < 3) {
-      particleTheme = theme;
-      var particleColor = COLORS[particleTheme][0];
+    var particleColor;
+
+    if (this.theme < 3) {
+      particleTheme = this.theme;
+      particleColor = COLORS[particleTheme][0];
       if (random(1) >= DOMINANT_COLOR_PROB_THEME) {
         particleColor = COLORS[particleTheme][int(random(2))];
       }
     } else {
-      particleTheme = int(random(theme));
-      var particleColor = COLORS[particleTheme][0];
+      particleTheme = int(random(this.theme));
+      particleColor = COLORS[particleTheme][0];
       if (random(1) >= DOMINANT_COLOR_PROB_COMBINED) {
         particleColor = COLORS[particleTheme][int(random(2))];
       }
