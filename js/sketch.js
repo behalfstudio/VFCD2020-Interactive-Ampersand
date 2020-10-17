@@ -18,12 +18,14 @@ function preload() {
   for (var i = 0; i < AMPERSAND_COUNT; i++) {}
 }
 
+var img;
+
 //-------------------------------------------------------------------//
 
 function setup() {
   createCanvas(WIDTH, HEIGHT);
 
-  var img = loadImage(AMPERSAND_IMG_DIRECTORY + 0 + ".jpg");
+  img = loadImage(AMPERSAND_IMG_DIRECTORY + 0 + ".jpg");
 
   WHITE = color(255);
   BLACK = color(0);
@@ -40,6 +42,7 @@ function setup() {
 
 function draw() {
   background(ps.bgColor);
+  image(img, 0, 0);
   ps.run();
 }
 
