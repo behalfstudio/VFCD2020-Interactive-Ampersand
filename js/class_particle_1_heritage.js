@@ -25,7 +25,7 @@ class Particle_Heritage extends Particle {
     }
 
     if (typeOfParticle == 5) {
-      this.s = loadShape(svgDirectory + typeOfParticle + ".svg");
+      this.s = loadSVG(svgDirectory + typeOfParticle + ".svg");
       this.s.disableStyle();
     }
   }

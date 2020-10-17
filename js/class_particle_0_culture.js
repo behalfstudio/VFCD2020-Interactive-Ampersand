@@ -15,7 +15,7 @@ class Particle_Culture extends Particle {
 
     this.typeOfParticle = int(random(CULTURE_TYPES_OF_PARTICLE));
 
-    this.petal = loadShape(CULTURE_SVG_DIRECTORY + typeOfParticle + ".svg");
+    this.petal = loadSVG(CULTURE_SVG_DIRECTORY + typeOfParticle + ".svg");
     this.petal.disableStyle();
 
     this.isStroke = int(random(2)) == 0;
