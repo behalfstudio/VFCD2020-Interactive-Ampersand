@@ -24,7 +24,7 @@ class Particle_Heritage extends Particle {
         this.size *= 1.5;
     }
 
-    if (typeOfParticle == 5) {
+    if (this.typeOfParticle == 5) {
       this.s = loadSVG(HERITAGE_SVG_DIRECTORY + this.typeOfParticle + ".svg");
       this.s.disableStyle();
     }
@@ -41,7 +41,7 @@ class Particle_Heritage extends Particle {
     }
 
     for (var i = 0; i < 2; i++) {
-      switch (typeOfParticle) {
+      switch (this.typeOfParticle) {
         case 0:
           drawStrokeCircles();
           break;
