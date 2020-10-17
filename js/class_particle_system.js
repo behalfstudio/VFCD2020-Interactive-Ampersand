@@ -56,7 +56,7 @@ class ParticleSystem {
   constructor(theme_) {
     this.theme = theme_;
 
-    switch (theme) {
+    switch (this.theme) {
       case CULTURE:
       case HERITAGE:
       case INNOVATION:
