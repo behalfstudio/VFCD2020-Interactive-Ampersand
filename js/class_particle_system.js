@@ -186,8 +186,6 @@ class ParticleSystem {
       case CULTURE:
         newParticle = new Particle_Culture(
           pos,
-          vel,
-          acc,
           target,
           maxSpeed,
           maxForce,
@@ -198,8 +196,6 @@ class ParticleSystem {
       case HERITAGE:
         newParticle = new Particle_Heritage(
           pos,
-          vel,
-          acc,
           target,
           maxSpeed,
           maxForce,
@@ -210,8 +206,6 @@ class ParticleSystem {
       case INNOVATION:
         newParticle = new Particle_Innovation(
           pos,
-          vel,
-          acc,
           target,
           maxSpeed,
           maxForce,
