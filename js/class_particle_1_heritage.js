@@ -15,7 +15,7 @@ class Particle_Heritage extends Particle {
     this.isRotated = int(random(2)) == 0;
 
     this.size = GRID_UNIT;
-    switch (typeOfParticle) {
+    switch (this.typeOfParticle) {
       case 0:
       case 2:
       case 3:
