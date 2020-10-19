@@ -121,7 +121,7 @@ class Particle_Culture extends Particle {
         this.size / 2,
         0
       );
-      constrain(scale, 0, size / 2);
+      constrain(scale, 0, this.size / 2);
 
       if (scale > 0) {
         image(
