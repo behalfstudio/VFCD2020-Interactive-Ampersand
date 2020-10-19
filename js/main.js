@@ -43,7 +43,6 @@ function setup() {
 
 function draw() {
   background(ps.bgColor);
-  image(img, 0, 0);
   ps.run();
 }
 
