@@ -66,6 +66,7 @@ class Particle {
   update() {
     // Check if particle is close enough to its target to slow down
     var proximityMult = 1.0;
+    println(this.pos);
     var distance = dist(this.pos.x, this.pos.y, this.target.x, this.target.y);
     if (distance < this.closeEnoughTarget) {
       proximityMult = distance / this.closeEnoughTarget;
