@@ -36,7 +36,7 @@ function setup() {
 
   currentTheme = getCurrentTheme();
 
-  ps = new ParticleSystem(1);
+  ps = new ParticleSystem(currentTheme);
 }
 
 //-------------------------------------------------------------------//
@@ -68,4 +68,10 @@ function getCurrentTheme() {
 
   // COMMUNITY
   return 3;
+}
+
+//-------------------------------------------------------------------//
+
+function mousePressed() {
+  currentTheme = ++currentTheme % 4;
 }
