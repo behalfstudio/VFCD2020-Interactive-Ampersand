@@ -42,11 +42,11 @@ class Particle_Culture extends Particle {
       );
 
       this.posOffset = -GRID_UNIT / 10 / pow(2, this.sizePow + 1);
-      this.scaleOffset = 1 + pow(2, this.sizePow) / 10;
+      this.scaleOffset = 1 + pow(2, -this.sizePow) / 10;
     } else {
       // fill
       this.posOffset = 0;
-      this.scaleOffset = 0;
+      this.scaleOffset = 1;
     }
 
     this.petal = loadImage(this.imgDirectory + ".png");
