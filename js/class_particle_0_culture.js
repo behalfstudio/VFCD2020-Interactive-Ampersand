@@ -65,7 +65,7 @@ class Particle_Culture extends Particle {
 
     for (var i = 0; i < 4; i++) {
       switch (this.typeOfParticle) {
-        case 4:
+        case 5:
           this.drawCircle();
         case 0:
         case 1:
@@ -73,7 +73,7 @@ class Particle_Culture extends Particle {
         case 3:
           this.drawDiagonalPetals();
           break;
-        case 5:
+        case 4:
           this.drawPetalsAndLines();
           break;
       }
