@@ -1,5 +1,5 @@
 var CULTURE_TYPES_OF_PARTICLE = 6;
-
+var CULTURE_STROKE_AVAILABLE = [0, 1, 3];
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
@@ -34,8 +34,8 @@ class Particle_Culture extends Particle {
       this.particleColorIndex.toString()
     );
 
-    this.isStroke = int(random(2)) == 0;
-    if (this.isStroke) {
+    if (CULTURE_STROKE_AVAILABLE.includes(this.typeOfParticle)) {
+      // stroke
       this.imgDirectory = this.imgDirectory.concat(
         "_",
         this.sizePow.toString()
@@ -44,6 +44,7 @@ class Particle_Culture extends Particle {
       this.posOffset = -GRID_UNIT / 10 / pow(2, this.sizePow + 1);
       this.scaleOffset = 1 + pow(2, this.sizePow) / 10;
     } else {
+      // fill
       this.posOffset = 0;
       this.scaleOffset = 0;
     }
@@ -75,9 +76,6 @@ class Particle_Culture extends Particle {
         case 5:
           this.drawDiagonalPetals();
           break;
-      }
-
-      if (this.typeOfParticle == 2) {
       }
 
       rotate(HALF_PI);
@@ -162,7 +160,7 @@ class Particle_Culture extends Particle {
     stroke(this.particleColor);
     strokeWeight(STROKE_WEIGHT);
 
-    if (progressIsPositive) {
+    if (this.progressIsPositive) {
       line(
         0,
         0,
