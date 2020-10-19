@@ -34,6 +34,8 @@ function setup() {
   TRANSPARENT = color(0, 0);
   LIGHT_GRAY = color(230);
 
+  strokeCap(SQUARE);
+
   currentTheme = getCurrentTheme();
 
   ps = new ParticleSystem(currentTheme);

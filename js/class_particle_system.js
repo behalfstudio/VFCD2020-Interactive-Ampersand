@@ -5,8 +5,8 @@ var COMMUNITY = 3;
 
 //-------------------------------------------------------------------//
 
-var WIDTH = 500;
-var HEIGHT = 500;
+var WIDTH = 1200;
+var HEIGHT = 1200;
 
 var GRID_UNIT = 20;
 var STROKE_WEIGHT = GRID_UNIT / 10;
@@ -93,8 +93,7 @@ class ParticleSystem {
 
         var r = noise(xOffset, yOffset);
 
-        //if (ampersandImages[this.theme].get(x, y) == BLACK) {
-        if (true) {
+        if (ampersandImages[this.theme].get(x, y) == BLACK) {
           r += BLACK_THRESHOLD;
         }
 
