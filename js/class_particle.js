@@ -7,7 +7,14 @@ var CLOSE_ENOUGH_TARGET = GRID_UNIT * 7;
 //-------------------------------------------------------------------//
 
 class Particle {
-  constructor(pos_, target_, maxSpeed_, maxForce_, particleColor_) {
+  constructor(
+    pos_,
+    target_,
+    maxSpeed_,
+    maxForce_,
+    particleColorIndex_,
+    particleColor_
+  ) {
     this.pos = pos_;
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
@@ -18,6 +25,7 @@ class Particle {
     this.maxSpeed = maxSpeed_;
     this.maxForce = maxForce_;
 
+    this.particleColorIndex = particleColorIndex_;
     this.particleColor = particleColor_;
 
     this.isDead = false;

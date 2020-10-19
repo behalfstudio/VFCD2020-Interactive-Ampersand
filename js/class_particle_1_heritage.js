@@ -28,7 +28,7 @@ class Particle_Heritage extends Particle {
           "1_" +
           this.typeOfParticle +
           "_" +
-          this.particleColor +
+          this.particleColorIndex +
           ".png"
       );
     }

@@ -145,6 +145,8 @@ class ParticleSystem {
   //-------------------------------------------------------------------//
 
   run() {
+    background(this.bgColor);
+
     for (var i = this.particles.length - 1; i >= 0; i--) {
       var p = this.particles[i];
       p.run();
@@ -166,19 +168,28 @@ class ParticleSystem {
     var maxForce = newParticle.maxSpeed * MAX_FORCE_RATIO;
 
     var particleTheme;
+    var particleColorIndex;
     var particleColor;
 
     if (this.theme < 3) {
       particleTheme = this.theme;
-      particleColor = COLORS[particleTheme][0];
+
+      particleColorIndex = 0;
+      particleColor = WHITE;
+
       if (random(1) >= DOMINANT_COLOR_PROB_THEME) {
-        particleColor = COLORS[particleTheme][int(random(2))];
+        particleColorIndex = int(random(2, 4));
+        particleColor = COLORS[particleTheme][particleColorIndex - 1];
       }
     } else {
       particleTheme = int(random(this.theme));
+
+      particleColorIndex = 1;
       particleColor = COLORS[particleTheme][0];
+
       if (random(1) >= DOMINANT_COLOR_PROB_COMBINED) {
-        particleColor = COLORS[particleTheme][int(random(2))];
+        particleColorIndex = int(random(2, 4));
+        particleColor = COLORS[particleTheme][particleColorIndex - 1];
       }
     }
 
@@ -189,6 +200,7 @@ class ParticleSystem {
           target,
           maxSpeed,
           maxForce,
+          particleColorIndex,
           particleColor
         );
         break;
@@ -199,6 +211,7 @@ class ParticleSystem {
           target,
           maxSpeed,
           maxForce,
+          particleColorIndex,
           particleColor
         );
         break;
@@ -209,6 +222,7 @@ class ParticleSystem {
           target,
           maxSpeed,
           maxForce,
+          particleColorIndex,
           particleColor
         );
         break;

@@ -17,7 +17,7 @@ class Particle_Culture extends Particle {
       "0_",
       this.typeOfParticle.toString(),
       "_",
-      this.particleColor.toString()
+      this.particleColorIndex.toString()
     );
 
     this.isStroke = int(random(2)) == 0;
