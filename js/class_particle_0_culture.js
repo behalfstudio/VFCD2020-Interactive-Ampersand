@@ -1,7 +1,4 @@
 var CULTURE_TYPES_OF_PARTICLE = 6;
-var CULTURE_SVG_BASE_SIZE = 25;
-
-var CULTURE_SVG_DIRECTORY = "assets/svg/HANOI/";
 
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
@@ -11,37 +8,39 @@ class Particle_Culture extends Particle {
   constructor() {
     super();
 
-    this.size = GRID_UNIT * pow(2, int(random(-1, 2)));
-
     this.typeOfParticle = int(random(CULTURE_TYPES_OF_PARTICLE));
 
-    this.petal = loadSVG(CULTURE_SVG_DIRECTORY + this.typeOfParticle + ".svg");
-    this.petal.disableStyle();
+    this.sizePow = int(random(0, 3));
+    this.size = GRID_UNIT * pow(2, this.sizePow - 1);
+
+    this.imgDirectory = PARTICLE_DIRECTORY.concat(
+      "0_",
+      this.typeOfParticle.toString(),
+      "_",
+      this.particleColor.toString()
+    );
 
     this.isStroke = int(random(2)) == 0;
     if (this.isStroke) {
-      petal.setFill(false);
-      petal.setStroke(this.particleColor);
+      this.imgDirectory = this.imgDirectory.concat(
+        "_",
+        this.sizePow.toString()
+      );
+
+      this.posOffset = -GRID_UNIT / 10 / pow(2, this.sizePow + 1);
+      this.scaleOffset = 1 + pow(2, this.sizePow) / 10;
     } else {
-      petal.setStroke(false);
-      petal.setFill(this.particleColor);
+      this.posOffset = 0;
+      this.scaleOffset = 0;
     }
 
-    this.isRotated = int(random(2)) == 0;
+    this.petal = loadImage(this.imgDirectory + ".png");
   }
 
   //-------------------------------------------------------------------//
 
   display() {
     push();
-    if (this.isStroke) {
-      noFill();
-      stroke(this.particleColor);
-      strokeWeight(MAX_STROKE_WEIGHT);
-    } else {
-      noStroke();
-      fill(this.particleColor);
-    }
 
     translate(this.pos.x + GRID_UNIT / 2, this.pos.y + GRID_UNIT / 2);
 
@@ -69,6 +68,7 @@ class Particle_Culture extends Particle {
 
       rotate(HALF_PI);
     }
+
     pop();
   }
 
@@ -77,7 +77,7 @@ class Particle_Culture extends Particle {
   //-------------------------------------------------------------------//
 
   drawDiagonalPetals() {
-    shapeMode(CORNER);
+    imageMode(CORNER);
     if (this.progressIsPositive) {
       var scale = map(
         this.progress,
@@ -89,18 +89,14 @@ class Particle_Culture extends Particle {
       constrain(scale, 0, this.size / 2);
 
       if (scale > 0) {
-        if (this.isStroke) {
-          strokeWeight((MAX_STROKE_WEIGHT * CULTURE_SVG_BASE_SIZE) / scale);
-        }
-
-        shape(
+        image(
           this.petal,
 
-          0,
-          0,
+          this.posOffset,
+          this.posOffset,
 
-          scale,
-          scale
+          scale * this.scaleOffset,
+          scale * this.scaleOffset
         );
       }
     } else {
@@ -114,18 +110,16 @@ class Particle_Culture extends Particle {
       constrain(scale, 0, size / 2);
 
       if (scale > 0) {
-        if (this.isStroke) {
-          strokeWeight((MAX_STROKE_WEIGHT * CULTURE_SVG_BASE_SIZE) / scale);
-        }
-
-        shape(
+        image(
           this.petal,
 
-          map(this.progress, MAX_PROGRESS, MIN_PROGRESS, 0, this.size / 2),
-          map(this.progress, MAX_PROGRESS, MIN_PROGRESS, 0, this.size / 2),
+          map(this.progress, MAX_PROGRESS, MIN_PROGRESS, 0, this.size / 2) +
+            this.posOffset,
+          map(this.progress, MAX_PROGRESS, MIN_PROGRESS, 0, this.size / 2) +
+            this.posOffset,
 
-          scale,
-          scale
+          scale * this.scaleOffset,
+          scale * this.scaleOffset
         );
       }
     }
@@ -148,13 +142,14 @@ class Particle_Culture extends Particle {
   //-------------------------------------------------------------------//
 
   drawPetalsAndLines() {
-    FRAME.shapeMode(CENTER);
+    imageMode(CENTER);
+
+    noFill();
+    stroke(this.particleColor);
+    strokeWeight(STROKE_WEIGHT);
 
     if (progressIsPositive) {
-      FRAME.noFill();
-      FRAME.stroke(this.particleColor);
-      FRAME.strokeWeight(STROKE_WEIGHT);
-      FRAME.line(
+      line(
         0,
         0,
         map(this.progress, MIN_PROGRESS, MAX_PROGRESS, 0, this.size / 2),
@@ -171,15 +166,7 @@ class Particle_Culture extends Particle {
       constrain(scale, 0, this.size / 2);
 
       if (scale > 0) {
-        if (this.isStroke) {
-          FRAME.strokeCap(ROUND);
-          FRAME.strokeWeight((STROKE_WEIGHT * CULTURE_SVG_BASE_SIZE) / scale);
-        } else {
-          FRAME.noStroke();
-          FRAME.fill(this.particleColor);
-        }
-
-        FRAME.shape(
+        image(
           this.petal,
 
           0,
@@ -194,14 +181,9 @@ class Particle_Culture extends Particle {
           scale,
           scale
         );
-
-        FRAME.strokeCap(SQUARE);
       }
     } else {
-      FRAME.noFill();
-      FRAME.stroke(this.particleColor);
-      FRAME.strokeWeight(STROKE_WEIGHT);
-      FRAME.line(
+      line(
         map(this.progress, MAX_PROGRESS, MIN_PROGRESS, 0, this.size / 2),
         map(this.progress, MAX_PROGRESS, MIN_PROGRESS, 0, this.size / 2),
         this.size / 2,
@@ -218,15 +200,7 @@ class Particle_Culture extends Particle {
       constrain(scale, 0, this.size / 2);
 
       if (scale > 0) {
-        if (this.isStroke) {
-          FRAME.strokeCap(ROUND);
-          FRAME.strokeWeight((STROKE_WEIGHT * CULTURE_SVG_BASE_SIZE) / scale);
-        } else {
-          FRAME.noStroke();
-          FRAME.fill(this.particleColor);
-        }
-
-        FRAME.shape(
+        image(
           this.petal,
 
           0,
@@ -235,8 +209,6 @@ class Particle_Culture extends Particle {
           scale,
           scale
         );
-
-        FRAME.strokeCap(SQUARE);
       }
     }
   }

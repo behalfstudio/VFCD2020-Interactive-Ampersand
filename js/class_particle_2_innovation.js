@@ -1,4 +1,3 @@
-var INNOVATION_MAX_DOT_GRID_SIZE = GRID_UNIT / 2;
 var INNOVATION_TYPES_OF_PARTICLE = 6;
 
 //-------------------------------------------------------------------//
@@ -9,16 +8,16 @@ class Particle_Innovation extends Particle {
   constructor() {
     super();
 
-    var isFlipped = int(random(2)) == 0;
-    var flip = isFlipped ? GRID_UNIT : 0;
+    this.flip = int(random(2)) == 0 ? GRID_UNIT : 0;
 
-    var typeOfParticle = int(random(INNOVATION_TYPES_OF_PARTICLE));
+    this.typeOfParticle = int(random(INNOVATION_TYPES_OF_PARTICLE));
   }
 
   //-------------------------------------------------------------------//
 
   display() {
     push();
+
     translate(this.pos.x + GRID_UNIT / 2, this.pos.y + GRID_UNIT / 2);
 
     switch (this.typeOfParticle) {
@@ -43,6 +42,7 @@ class Particle_Innovation extends Particle {
     }
 
     drawDotGrid();
+
     pop();
   }
 
@@ -59,20 +59,8 @@ class Particle_Innovation extends Particle {
     rect(
       GRID_UNIT / 2 - this.flip,
       -GRID_UNIT / 2,
-      map(
-        this.progress,
-        MAX_PROGRESS,
-        MIN_PROGRESS,
-        0,
-        INNOVATION_MAX_DOT_GRID_SIZE
-      ),
-      map(
-        this.progress,
-        MAX_PROGRESS,
-        MIN_PROGRESS,
-        0,
-        INNOVATION_MAX_DOT_GRID_SIZE
-      )
+      map(this.progress, MAX_PROGRESS, MIN_PROGRESS, 0, GRID_UNIT / 2),
+      map(this.progress, MAX_PROGRESS, MIN_PROGRESS, 0, GRID_UNIT / 2)
     );
   }
 

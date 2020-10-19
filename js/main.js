@@ -2,6 +2,8 @@ var AMPERSAND_IMG_DIRECTORY = "assets/img/";
 var AMPERSAND_COUNT = 4;
 var ampersandImages = [];
 
+var PARTICLE_DIRECTORY = "assets/particles/";
+
 //-------------------------------------------------------------------//
 
 var ps;

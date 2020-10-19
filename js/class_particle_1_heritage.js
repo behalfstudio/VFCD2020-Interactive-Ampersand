@@ -1,7 +1,5 @@
 var HERITAGE_TYPES_OF_PARTICLE = 6;
 
-var HERITAGE_SVG_DIRECTORY = "assets/svg/HUE/";
-
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
@@ -25,8 +23,14 @@ class Particle_Heritage extends Particle {
     }
 
     if (this.typeOfParticle == 5) {
-      this.s = loadSVG(HERITAGE_SVG_DIRECTORY + this.typeOfParticle + ".svg");
-      this.s.disableStyle();
+      this.s = loadImage(
+        PARTICLE_DIRECTORY +
+          "1_" +
+          this.typeOfParticle +
+          "_" +
+          this.particleColor +
+          ".png"
+      );
     }
   }
 
@@ -34,6 +38,7 @@ class Particle_Heritage extends Particle {
 
   display() {
     push();
+
     translate(this.pos.x + GRID_UNIT / 2, this.pos.y + GRID_UNIT / 2);
 
     if (this.isRotated) {
@@ -64,6 +69,7 @@ class Particle_Heritage extends Particle {
 
       rotate(PI);
     }
+
     pop();
   }
 
@@ -281,12 +287,12 @@ class Particle_Heritage extends Particle {
       );
     }
 
-    shapeMode(CENTER);
+    imageMode(CENTER);
 
     noStroke();
     fill(this.particleColor);
 
-    shape(
+    image(
       s,
 
       -(this.size - componentWidth) / 2 + offset,
