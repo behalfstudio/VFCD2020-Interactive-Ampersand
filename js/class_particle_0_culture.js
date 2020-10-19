@@ -65,16 +65,16 @@ class Particle_Culture extends Particle {
 
     for (var i = 0; i < 4; i++) {
       switch (this.typeOfParticle) {
-        case 2:
-          this.drawPetalsAndLines();
-          break;
         case 4:
           this.drawCircle();
         case 0:
         case 1:
+        case 2:
         case 3:
-        case 5:
           this.drawDiagonalPetals();
+          break;
+        case 5:
+          this.drawPetalsAndLines();
           break;
       }
 
@@ -141,7 +141,8 @@ class Particle_Culture extends Particle {
 
   drawCircle() {
     ellipseMode(CENTER);
-    strokeWeight(MAX_STROKE_WEIGHT);
+    noStroke();
+    fill(this.particleColor);
 
     ellipse(
       0,
