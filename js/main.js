@@ -73,5 +73,5 @@ function getCurrentTheme() {
 //-------------------------------------------------------------------//
 
 function mousePressed() {
-  currentTheme = ++currentTheme % 4;
+  ps = new ParticleSystem(++currentTheme % 4);
 }
