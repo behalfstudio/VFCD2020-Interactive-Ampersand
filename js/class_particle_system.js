@@ -9,6 +9,7 @@ var WIDTH = 500;
 var HEIGHT = 500;
 
 var GRID_UNIT = 20;
+var STROKE_WEIGHT = GRID_UNIT / 10;
 var DOMINANT_COLOR_PROB_THEME = 0.85;
 var DOMINANT_COLOR_PROB_COMBINED = 0.5;
 var DENSITY = 0.9;
@@ -92,7 +93,8 @@ class ParticleSystem {
 
         var r = noise(xOffset, yOffset);
 
-        if (ampersandImages[this.theme].get(x, y) == BLACK) {
+        //if (ampersandImages[this.theme].get(x, y) == BLACK) {
+        if (true) {
           r += BLACK_THRESHOLD;
         }
 
@@ -165,7 +167,7 @@ class ParticleSystem {
     var pos = generateRandomPos(WIDTH / 2, HEIGHT / 2, (WIDTH + HEIGHT) / 2);
     var target = createVector(x, y);
     var maxSpeed = random(MIN_SPEED, MAX_SPEED);
-    var maxForce = newParticle.maxSpeed * MAX_FORCE_RATIO;
+    var maxForce = maxSpeed * MAX_FORCE_RATIO;
 
     var particleTheme;
     var particleColorIndex;

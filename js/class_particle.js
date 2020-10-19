@@ -66,27 +66,26 @@ class Particle {
   update() {
     // Check if particle is close enough to its target to slow down
     var proximityMult = 1.0;
-    console.log(this.pos);
     var distance = dist(this.pos.x, this.pos.y, this.target.x, this.target.y);
     if (distance < this.closeEnoughTarget) {
       proximityMult = distance / this.closeEnoughTarget;
     }
 
     // Add force towards target
-    var towardsTarget = createVector(target.x, target.y);
-    towardsTarget.sub(pos);
+    var towardsTarget = createVector(this.target.x, this.target.y);
+    towardsTarget.sub(this.pos);
     towardsTarget.normalize();
     towardsTarget.mult(this.maxSpeed * proximityMult);
 
     var steer = createVector(towardsTarget.x, towardsTarget.y);
-    steer.sub(vel);
+    steer.sub(this.vel);
     steer.normalize();
-    steer.mult(maxForce);
+    steer.mult(this.maxForce);
     this.acc.add(steer);
 
     // Move particle
-    this.vel.add(acc);
-    this.pos.add(vel);
+    this.vel.add(this.acc);
+    this.pos.add(this.vel);
     this.acc.mult(0);
   }
 

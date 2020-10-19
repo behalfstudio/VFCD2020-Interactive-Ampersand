@@ -5,8 +5,22 @@ var HERITAGE_TYPES_OF_PARTICLE = 6;
 //-------------------------------------------------------------------//
 
 class Particle_Heritage extends Particle {
-  constructor() {
-    super();
+  constructor(
+    pos_,
+    target_,
+    maxSpeed_,
+    maxForce_,
+    particleColorIndex_,
+    particleColor_
+  ) {
+    super(
+      pos_,
+      target_,
+      maxSpeed_,
+      maxForce_,
+      particleColorIndex_,
+      particleColor_
+    );
 
     this.typeOfParticle = int(random(HERITAGE_TYPES_OF_PARTICLE));
 
@@ -48,22 +62,22 @@ class Particle_Heritage extends Particle {
     for (var i = 0; i < 2; i++) {
       switch (this.typeOfParticle) {
         case 0:
-          drawStrokeCircles();
+          this.drawStrokeCircles();
           break;
         case 1:
-          drawStrokeDualDiamonds();
+          this.drawStrokeDualDiamonds();
           break;
         case 2:
-          drawStrokeLineCircle();
+          this.drawStrokeLineCircle();
           break;
         case 3:
-          drawFillDiamond();
+          this.drawFillDiamond();
           break;
         case 4:
-          drawFillHexagon();
+          this.drawFillHexagon();
           break;
         case 5:
-          drawFillFlower();
+          this.drawFillFlower();
           break;
       }
 
@@ -293,7 +307,7 @@ class Particle_Heritage extends Particle {
     fill(this.particleColor);
 
     image(
-      s,
+      this.s,
 
       -(this.size - componentWidth) / 2 + offset,
       -0,

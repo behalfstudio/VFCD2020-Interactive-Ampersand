@@ -5,8 +5,22 @@ var CULTURE_TYPES_OF_PARTICLE = 6;
 //-------------------------------------------------------------------//
 
 class Particle_Culture extends Particle {
-  constructor() {
-    super();
+  constructor(
+    pos_,
+    target_,
+    maxSpeed_,
+    maxForce_,
+    particleColorIndex_,
+    particleColor_
+  ) {
+    super(
+      pos_,
+      target_,
+      maxSpeed_,
+      maxForce_,
+      particleColorIndex_,
+      particleColor_
+    );
 
     this.typeOfParticle = int(random(CULTURE_TYPES_OF_PARTICLE));
 
@@ -51,15 +65,15 @@ class Particle_Culture extends Particle {
     for (var i = 0; i < 4; i++) {
       switch (this.typeOfParticle) {
         case 2:
-          drawPetalsAndLines();
+          this.drawPetalsAndLines();
           break;
         case 4:
-          drawCircle();
+          this.drawCircle();
         case 0:
         case 1:
         case 3:
         case 5:
-          drawDiagonalPetals();
+          this.drawDiagonalPetals();
           break;
       }
 

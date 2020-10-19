@@ -18,8 +18,8 @@ var WHITE, BLACK, OFF_WHITE, TRANSPARENT, LIGHT_GRAY;
 
 function preload() {
   for (var i = 0; i < AMPERSAND_COUNT; i++) {
-    var img = loadImage(AMPERSAND_IMG_DIRECTORY + 0 + ".jpg");
-    ampersandImages.push(img);
+    //var img = loadImage(AMPERSAND_IMG_DIRECTORY + 0 + ".jpg");
+    //ampersandImages.push(img);
   }
 }
 
@@ -36,7 +36,7 @@ function setup() {
 
   currentTheme = getCurrentTheme();
 
-  ps = new ParticleSystem(2);
+  ps = new ParticleSystem(1);
 }
 
 //-------------------------------------------------------------------//

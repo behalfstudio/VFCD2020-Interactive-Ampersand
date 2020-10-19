@@ -5,8 +5,22 @@ var INNOVATION_TYPES_OF_PARTICLE = 6;
 //-------------------------------------------------------------------//
 
 class Particle_Innovation extends Particle {
-  constructor() {
-    super();
+  constructor(
+    pos_,
+    target_,
+    maxSpeed_,
+    maxForce_,
+    particleColorIndex_,
+    particleColor_
+  ) {
+    super(
+      pos_,
+      target_,
+      maxSpeed_,
+      maxForce_,
+      particleColorIndex_,
+      particleColor_
+    );
 
     this.flip = int(random(2)) == 0 ? GRID_UNIT : 0;
 
@@ -22,26 +36,26 @@ class Particle_Innovation extends Particle {
 
     switch (this.typeOfParticle) {
       case 0:
-        drawSingleLine();
+        this.drawSingleLine();
         break;
       case 1:
-        draw3Lines();
+        this.draw3Lines();
         break;
       case 2:
-        drawArrowLine();
+        this.drawArrowLine();
         break;
       case 3:
-        drawTriangle();
+        this.drawTriangle();
         break;
       case 4:
-        drawCrystal();
+        this.drawCrystal();
         break;
       case 5:
-        drawSquare();
+        this.drawSquare();
         break;
     }
 
-    drawDotGrid();
+    this.drawDotGrid();
 
     pop();
   }
