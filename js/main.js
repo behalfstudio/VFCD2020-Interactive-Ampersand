@@ -36,7 +36,7 @@ function setup() {
 
   currentTheme = getCurrentTheme();
 
-  ps = new ParticleSystem(currentTheme);
+  ps = new ParticleSystem(2);
 }
 
 //-------------------------------------------------------------------//
