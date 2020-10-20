@@ -111,6 +111,14 @@ var bg;
 function setup() {
   declareConstants();
 
+  for (var i = 0; i < AMPERSAND_COUNT; i++) {
+    if (WIDTH <= HEIGHT) {
+      ampersandImages[i].resize(WIDTH, WIDTH);
+    } else {
+      ampersandImages[i].resize(HEIGHT, HEIGHT);
+    }
+  }
+
   //-------------------------------------------------------------------//
 
   strokeCap(SQUARE);
@@ -134,7 +142,6 @@ function setup() {
 //-------------------------------------------------------------------//
 
 function draw() {
-  background(ps.bgColor);
   ps.run();
 }
 
