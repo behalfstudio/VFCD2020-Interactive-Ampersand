@@ -128,8 +128,6 @@ function setup() {
 
   canvas.currentTheme = getCurrentTheme();
 
-  ps = new ParticleSystem(currentTheme);
-
   bg = document.getElementById("particle-background");
   bg.style.background = ps.bgColor;
 }
@@ -171,11 +169,13 @@ function getCurrentTheme() {
 
 function windowResized() {
   declareConstants();
+
   canvas = createCanvas(WIDTH, HEIGHT);
+  canvas.id("particle-canvas");
 }
 
 //-------------------------------------------------------------------//
 
 function mousePressed() {
-  ps.initCoordsIndexes();
+  //ps.initCoordsIndexes();
 }
