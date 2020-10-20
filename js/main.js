@@ -121,7 +121,6 @@ function setup() {
   canvas.id("particle-canvas");
 
   bg = document.getElementById("particle-background");
-  bg.style("z-index", "-1");
 
   //-------------------------------------------------------------------//
 
