@@ -70,7 +70,7 @@ function declareConstants() {
   WIDTH = windowWidth;
   HEIGHT = windowHeight;
 
-  GRID_UNIT = 20;
+  GRID_UNIT = (WIDTH * HEIGHT) / 75000;
   STROKE_WEIGHT = GRID_UNIT / 10;
   DOMINANT_COLOR_PROB_THEME = 0.85;
   DOMINANT_COLOR_PROB_COMBINED = 0.5;
