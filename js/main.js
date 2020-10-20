@@ -35,6 +35,7 @@ var POSITIVE_THRESHOLD;
 var MIN_SPEED;
 var MAX_SPEED;
 var MAX_FORCE_RATIO;
+var CLOSE_ENOUGH_TARGET;
 
 //-------------------------------------------------------------------//
 
@@ -82,6 +83,7 @@ function declareConstants() {
   MIN_SPEED = (WIDTH * 6) / 1500;
   MAX_SPEED = MIN_SPEED * 2;
   MAX_FORCE_RATIO = 0.025;
+  CLOSE_ENOUGH_TARGET = GRID_UNIT * 7;
 
   WHITE = color(255);
   BLACK = color(0);
@@ -119,7 +121,6 @@ function setup() {
   canvas.id("particle-canvas");
 
   bg = document.getElementById("particle-background");
-  bg.position(0, 0);
   bg.style("z-index", "-1");
 
   //-------------------------------------------------------------------//
