@@ -101,6 +101,7 @@ function preload() {
     var img = loadImage(AMPERSAND_IMG_DIRECTORY + i + ".jpg");
     ampersandImages.push(img);
   }
+  console.log(ampersandImages);
 }
 
 //-------------------------------------------------------------------//
