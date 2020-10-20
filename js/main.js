@@ -1,4 +1,4 @@
-var AMPERSAND_IMG_DIRECTORY = "assets/img/";
+var AMPERSAND_IMG_DIRECTORY = "assets/amp/amp-0";
 var AMPERSAND_COUNT = 4;
 var ampersandImages = [];
 
@@ -98,7 +98,7 @@ function declareConstants() {
 
 function preload() {
   for (var i = 0; i < AMPERSAND_COUNT; i++) {
-    var img = loadImage(AMPERSAND_IMG_DIRECTORY + 0 + ".jpg");
+    var img = loadImage(AMPERSAND_IMG_DIRECTORY + i + ".jpg");
     ampersandImages.push(img);
   }
 }
@@ -113,9 +113,9 @@ function setup() {
 
   for (var i = 0; i < AMPERSAND_COUNT; i++) {
     if (WIDTH <= HEIGHT) {
-      ampersandImages[i].resize(WIDTH, 0);
+      //ampersandImages[i].resize(WIDTH, 0);
     } else {
-      ampersandImages[i].resize(HEIGHT, 0);
+      //ampersandImages[i].resize(HEIGHT, 0);
     }
   }
 
@@ -143,6 +143,7 @@ function setup() {
 //-------------------------------------------------------------------//
 
 function draw() {
+  clear();
   ps.run();
 }
 
