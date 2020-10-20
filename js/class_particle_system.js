@@ -38,7 +38,8 @@ class ParticleSystem {
 
         var r = noise(xOffset, yOffset);
 
-        if (ampersandImages[this.theme].get(x, y) == BLACK) {
+        //if (ampersandImages[this.theme].get(x, y) == BLACK) {
+        if (true) {
           r += BLACK_THRESHOLD;
         }
 
