@@ -112,11 +112,7 @@ function setup() {
   declareConstants();
 
   for (var i = 0; i < AMPERSAND_COUNT; i++) {
-    if (WIDTH <= HEIGHT) {
-      //ampersandImages[i].resize(WIDTH, 0);
-    } else {
-      //ampersandImages[i].resize(HEIGHT, 0);
-    }
+    ampersandImages[i].resize(HEIGHT, 0);
   }
 
   //-------------------------------------------------------------------//
@@ -128,14 +124,14 @@ function setup() {
   canvas = createCanvas(WIDTH, HEIGHT);
   canvas.id("particle-canvas");
 
-  bg = document.getElementById("particle-background");
-  bg.style.background = "#F5C022";
-
   //-------------------------------------------------------------------//
 
   canvas.currentTheme = getCurrentTheme();
 
   ps = new ParticleSystem(currentTheme);
+
+  bg = document.getElementById("particle-background");
+  bg.style.background = ps.bgColor;
 }
 
 //-------------------------------------------------------------------//
@@ -176,4 +172,10 @@ function getCurrentTheme() {
 function windowResized() {
   declareConstants();
   canvas = createCanvas(WIDTH, HEIGHT);
+}
+
+//-------------------------------------------------------------------//
+
+function mousePressed() {
+  ps.initCoordsIndexes();
 }
