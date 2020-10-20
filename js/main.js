@@ -113,9 +113,9 @@ function setup() {
 
   for (var i = 0; i < AMPERSAND_COUNT; i++) {
     if (WIDTH <= HEIGHT) {
-      ampersandImages[i].resize(WIDTH, WIDTH);
+      ampersandImages[i].resize(WIDTH, 0);
     } else {
-      ampersandImages[i].resize(HEIGHT, HEIGHT);
+      ampersandImages[i].resize(HEIGHT, 0);
     }
   }
 
@@ -129,6 +129,7 @@ function setup() {
   canvas.id("particle-canvas");
 
   bg = document.getElementById("particle-background");
+  bg.style.background = "#F5C022";
 
   //-------------------------------------------------------------------//
 
@@ -142,7 +143,7 @@ function setup() {
 //-------------------------------------------------------------------//
 
 function draw() {
-  ps.run();
+  //ps.run();
 }
 
 //-------------------------------------------------------------------//
