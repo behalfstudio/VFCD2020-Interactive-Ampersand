@@ -91,7 +91,7 @@ class ParticleSystem {
   //-------------------------------------------------------------------//
 
   run() {
-    background(this.bgColor);
+    bg.style.background = this.bgColor;
 
     for (var i = this.particles.length - 1; i >= 0; i--) {
       var p = this.particles[i];

@@ -87,7 +87,7 @@ function declareConstants() {
 
   WHITE = color(255);
   BLACK = color(0);
-  OFF_WHITE = color("#F6F5EE");
+  OFF_WHITE = "#F6F5EE";
   TRANSPARENT = color(0, 0);
   LIGHT_GRAY = color(230);
 }
