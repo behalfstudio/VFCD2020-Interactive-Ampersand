@@ -38,20 +38,20 @@ class ParticleSystem {
         var x = int(i * GRID_UNIT);
         var y = int(j * GRID_UNIT);
 
-        var r = noise(xOffset, yOffset);
+        var n = noise(xOffset, yOffset);
 
         if (x >= (WIDTH - HEIGHT) / 2 && x <= HEIGHT + (WIDTH - HEIGHT) / 2) {
-          var pixel = ampersandImages[this.theme].get(
+          const [r, g, b] = ampersandImages[this.theme].get(
             x - (WIDTH - HEIGHT) / 2,
             y
           );
 
-          if (pixel == BLACK_AMP) {
-            r += BLACK_THRESHOLD;
+          if (r == 0 && (g == 0) & (b == 0)) {
+            n += BLACK_THRESHOLD;
           }
         }
 
-        if (r >= POSITIVE_THRESHOLD) {
+        if (n >= POSITIVE_THRESHOLD) {
           if (random(1) <= DENSITY) {
             this.coordsIndexes.push(x + y * WIDTH);
           }

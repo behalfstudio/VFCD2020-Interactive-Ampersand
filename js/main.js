@@ -1,7 +1,6 @@
 var AMPERSAND_IMG_DIRECTORY = "assets/amp/amp-0";
 var AMPERSAND_COUNT = 4;
 var ampersandImages = [];
-var BLACK_AMP;
 
 var PARTICLE_DIRECTORY = "assets/particles/";
 
@@ -84,7 +83,6 @@ function declareConstants() {
 
   WHITE = color(255);
   BLACK = color(0);
-  BLACK_AMP = [0, 0, 0, 255];
   OFF_WHITE = "#F6F5EE";
   TRANSPARENT = color(0, 0);
   LIGHT_GRAY = color(230);
@@ -110,6 +108,7 @@ var ps;
 var currentTheme;
 
 function setup() {
+  console.log("hjhj");
   declareConstants();
 
   for (var i = 0; i < AMPERSAND_COUNT; i++) {
