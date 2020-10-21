@@ -2,6 +2,8 @@ class ParticleSystem {
   constructor(theme_) {
     this.theme = theme_;
 
+    this.img = ampersandImages[this.theme];
+
     switch (this.theme) {
       case CULTURE:
       case HERITAGE:
@@ -40,7 +42,10 @@ class ParticleSystem {
 
         if (x >= (WIDTH - HEIGHT) / 2 && x <= HEIGHT + (WIDTH - HEIGHT) / 2) {
           console.log(ampersandImages[this.theme]);
-          if (ampersandImages[this.theme].get(x, y) == BLACK) {
+          if (
+            ampersandImages[this.theme].get(x - (WIDTH - HEIGHT) / 2, y) ==
+            BLACK
+          ) {
             r += BLACK_THRESHOLD;
           }
         }
