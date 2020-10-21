@@ -42,8 +42,8 @@ class ParticleSystem {
 
         if (x >= (WIDTH - HEIGHT) / 2 && x <= HEIGHT + (WIDTH - HEIGHT) / 2) {
           if (
-            ampersandImages[this.theme].get(x - (WIDTH - HEIGHT) / 2, y) ==
-            BLACK
+            ampersandImages[this.theme].get(x - (WIDTH - HEIGHT) / 2, y) !=
+            WHITE
           ) {
             r += BLACK_THRESHOLD;
           }

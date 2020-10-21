@@ -116,10 +116,6 @@ function setup() {
 
   //-------------------------------------------------------------------//
 
-  strokeCap(SQUARE);
-
-  //-------------------------------------------------------------------//
-
   canvas = createCanvas(WIDTH, HEIGHT);
   canvas.id("particle-canvas");
 
