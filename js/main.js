@@ -66,7 +66,7 @@ function declareConstants() {
   WIDTH = windowWidth;
   HEIGHT = windowHeight;
 
-  GRID_UNIT = (WIDTH * HEIGHT) / 75000;
+  GRID_UNIT = (WIDTH * HEIGHT) / 100000;
   STROKE_WEIGHT = GRID_UNIT / 10;
   DOMINANT_COLOR_PROB_THEME = 0.85;
   DOMINANT_COLOR_PROB_COMBINED = 0.5;
@@ -108,7 +108,6 @@ var ps;
 var currentTheme;
 
 function setup() {
-  console.log("hjhj");
   declareConstants();
 
   for (var i = 0; i < AMPERSAND_COUNT; i++) {
