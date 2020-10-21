@@ -41,6 +41,9 @@ class ParticleSystem {
         var r = noise(xOffset, yOffset);
 
         if (x >= (WIDTH - HEIGHT) / 2 && x <= HEIGHT + (WIDTH - HEIGHT) / 2) {
+          console.log(
+            ampersandImages[this.theme].get(x - (WIDTH - HEIGHT) / 2, y)
+          );
           if (
             ampersandImages[this.theme].get(x - (WIDTH - HEIGHT) / 2, y) !=
             WHITE
