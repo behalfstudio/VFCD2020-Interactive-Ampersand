@@ -119,6 +119,8 @@ function setup() {
   canvas = createCanvas(WIDTH, HEIGHT);
   canvas.id("particle-canvas");
 
+  frameRate(30);
+
   //-------------------------------------------------------------------//
 
   currentTheme = getCurrentTheme();

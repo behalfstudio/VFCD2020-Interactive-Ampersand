@@ -1,5 +1,7 @@
 var MAX_PROGRESS = 1;
 var MIN_PROGRESS = 0;
+var MIN_PROGRESS_STEP = 0.02;
+var MAX_PROGRESS_STEP = 0.05;
 
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
@@ -31,7 +33,7 @@ class Particle {
 
     this.progress = int(random(MIN_PROGRESS * 100, MAX_PROGRESS * 100)) / 100.0;
     this.progressIsPositive = int(random(2)) == 0;
-    this.progressStep = random(0.01, 0.025);
+    this.progressStep = random(MIN_PROGRESS_STEP, MAX_PROGRESS_STEP);
   }
 
   //-------------------------------------------------------------------//
