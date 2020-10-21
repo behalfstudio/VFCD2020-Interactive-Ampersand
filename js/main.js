@@ -130,7 +130,7 @@ function setup() {
 
   //-------------------------------------------------------------------//
 
-  bg() = document.getElementById("particle-background");
+  bg = document.getElementById("particle-background");
   bg.style.background = ps.bgColor;
 }
 
