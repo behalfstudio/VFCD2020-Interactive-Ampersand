@@ -6,10 +6,6 @@ var PARTICLE_DIRECTORY = "assets/particles/";
 
 //-------------------------------------------------------------------//
 
-var ps;
-
-var currentTheme;
-
 var CULTURE = 0;
 var HERITAGE = 1;
 var INNOVATION = 2;
@@ -108,6 +104,9 @@ function preload() {
 var canvas;
 var bg;
 
+var ps;
+var currentTheme;
+
 function setup() {
   declareConstants();
 
@@ -126,9 +125,12 @@ function setup() {
 
   //-------------------------------------------------------------------//
 
-  canvas.currentTheme = getCurrentTheme();
+  currentTheme = getCurrentTheme();
+  ps = new ParticleSystem(currentTheme);
 
-  bg = document.getElementById("particle-background");
+  //-------------------------------------------------------------------//
+
+  bg() = document.getElementById("particle-background");
   bg.style.background = ps.bgColor;
 }
 
@@ -177,5 +179,5 @@ function windowResized() {
 //-------------------------------------------------------------------//
 
 function mousePressed() {
-  //ps.initCoordsIndexes();
+  ps.initCoordsIndexes();
 }
