@@ -45,7 +45,7 @@ class ParticleSystem {
             x - (WIDTH - HEIGHT) / 2,
             y
           );
-          console.log(pixel);
+
           if (pixel == BLACK_AMP) {
             r += BLACK_THRESHOLD;
           }
