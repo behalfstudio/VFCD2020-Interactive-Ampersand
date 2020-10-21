@@ -137,9 +137,7 @@ function setup() {
 
 function draw() {
   clear();
-  image(ampersandImages[currentTheme], (WIDTH - HEIGHT) / 2, 0);
   ps.run();
-  console.log(ps.particles.length);
 }
 
 //-------------------------------------------------------------------//
