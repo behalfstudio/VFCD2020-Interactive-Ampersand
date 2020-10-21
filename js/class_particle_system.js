@@ -90,7 +90,7 @@ class ParticleSystem {
     if (particleIndex < particleCount) {
       for (var i = particleIndex; i < particleCount; i++) {
         var p = this.particles[i];
-        p.destroy();
+        p.kill();
       }
     }
   }
