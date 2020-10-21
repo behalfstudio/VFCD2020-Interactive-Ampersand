@@ -174,8 +174,7 @@ function getCurrentTheme() {
 function windowResized() {
   declareConstants();
 
-  canvas = createCanvas(WIDTH, HEIGHT);
-  canvas.id("particle-canvas");
+  resizeCanvas(WIDTH, HEIGHT);
 }
 
 //-------------------------------------------------------------------//
