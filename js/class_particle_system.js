@@ -41,13 +41,12 @@ class ParticleSystem {
         var r = noise(xOffset, yOffset);
 
         if (x >= (WIDTH - HEIGHT) / 2 && x <= HEIGHT + (WIDTH - HEIGHT) / 2) {
-          console.log(
-            ampersandImages[this.theme].get(x - (WIDTH - HEIGHT) / 2, y)
+          var pixel = ampersandImages[this.theme].get(
+            x - (WIDTH - HEIGHT) / 2,
+            y
           );
-          if (
-            ampersandImages[this.theme].get(x - (WIDTH - HEIGHT) / 2, y) ==
-            BLACK_AMP
-          ) {
+          console.log(pixel);
+          if (pixel == BLACK_AMP) {
             r += BLACK_THRESHOLD;
           }
         }

@@ -1,6 +1,7 @@
 var AMPERSAND_IMG_DIRECTORY = "assets/amp/amp-0";
 var AMPERSAND_COUNT = 4;
 var ampersandImages = [];
+var BLACK_AMP;
 
 var PARTICLE_DIRECTORY = "assets/particles/";
 
