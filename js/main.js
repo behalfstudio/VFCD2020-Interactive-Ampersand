@@ -141,6 +141,7 @@ function setup() {
 function draw() {
   clear();
   ps.run();
+  console.log(ps.particles.length);
 }
 
 //-------------------------------------------------------------------//
