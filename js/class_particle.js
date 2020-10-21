@@ -97,7 +97,11 @@ class Particle {
   kill() {
     if (!this.isDead) {
       // Set its target outside the scene
-      target = generateRandomPos(WIDTH / 2, HEIGHT / 2, (WIDTH + HEIGHT) / 2);
+      this.target = generateRandomPos(
+        WIDTH / 2,
+        HEIGHT / 2,
+        (WIDTH + HEIGHT) / 2
+      );
       this.isDead = true;
     }
   }
