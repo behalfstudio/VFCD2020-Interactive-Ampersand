@@ -87,6 +87,7 @@ function declareConstants() {
 
   BASE_FORCE = GRID_UNIT;
   FALLOFF = 20;
+  console.log(FALLOFF);
 
   WHITE = color(255);
   BLACK = color(0);

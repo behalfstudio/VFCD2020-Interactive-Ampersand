@@ -117,8 +117,6 @@ class Particle {
       dist(this.pos.x, this.pos.y, x, y);
 
     if (force > 0) {
-      console.log(force);
-
       var angle = atan2(this.pos.x - x, this.pos.y - y);
       this.vel.x += force * sin(angle);
       this.vel.y += force * cos(angle);
