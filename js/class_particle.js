@@ -113,7 +113,7 @@ class Particle {
   applyForce(x, y) {
     var force =
       BASE_FORCE +
-      random(-BASE_FORCE / 3, BASE_FORCE / 3) -
+      random(-BASE_FORCE / 4, BASE_FORCE / 4) -
       dist(this.pos.x, this.pos.y, x, y) / FALLOFF;
 
     if (force > 0) {
