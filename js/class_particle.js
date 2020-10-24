@@ -115,6 +115,7 @@ class Particle {
       BASE_FORCE +
       random(-BASE_FORCE / 5, BASE_FORCE / 5) -
       dist(this.pos.x, this.pos.y, x, y);
+    console.log(force);
 
     if (force > 0) {
       var angle = atan2(this.pos.x - x, this.pos.y - y);
