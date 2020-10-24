@@ -188,12 +188,14 @@ function mousePressed() {
   }
 }
 
-//-------------------------------------------------------------------//
-
 function mouseDragged() {
   if (mouseButton == LEFT) {
     ps.explode(mouseX, mouseY);
   }
+}
+
+function touchStarted() {
+  ps.explode(mouseX, mouseY);
 }
 
 //-------------------------------------------------------------------//
