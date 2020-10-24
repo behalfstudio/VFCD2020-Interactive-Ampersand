@@ -1,4 +1,4 @@
-var AMPERSAND_IMG_DIRECTORY = "assets/amp/amp-0";
+var AMPERSAND_IMG_DIRECTORY = "assets/amp/amp_";
 var AMPERSAND_COUNT = 4;
 var ampersandImages = [];
 
