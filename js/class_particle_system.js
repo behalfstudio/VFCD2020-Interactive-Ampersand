@@ -28,7 +28,6 @@ class ParticleSystem {
     noiseSeed(int(random(10000)));
 
     var noiseStep = NOISE_STEP;
-    beh;
     var xOffset, yOffset;
 
     yOffset = 0;
