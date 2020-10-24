@@ -28,6 +28,7 @@ class ParticleSystem {
     noiseSeed(int(random(10000)));
 
     var noiseStep = NOISE_STEP;
+    beh;
     var xOffset, yOffset;
 
     yOffset = 0;
@@ -198,6 +199,14 @@ class ParticleSystem {
   destroySystem() {
     for (var i = this.particles.length - 1; i >= 0; i--) {
       this.killParticle(n);
+    }
+  }
+
+  //-------------------------------------------------------------------//
+
+  explode(x, y) {
+    for (p of particles) {
+      p.applyForce(x, y);
     }
   }
 }

@@ -33,6 +33,9 @@ var MAX_SPEED;
 var MAX_FORCE_RATIO;
 var CLOSE_ENOUGH_TARGET;
 
+var BASE_FORCE;
+var FALLOFF;
+
 //-------------------------------------------------------------------//
 
 var COLORS = [
@@ -66,11 +69,7 @@ function declareConstants() {
   WIDTH = windowWidth;
   HEIGHT = windowHeight;
 
-  if (WIDTH >= HEIGHT) {
-    GRID_UNIT = WIDTH / 75;
-  } else {
-    GRID_UNIT = HEIGHT / 75;
-  }
+  GRID_UNIT = (WIDTH + HEIGHT) / 150;
 
   STROKE_WEIGHT = GRID_UNIT / 10;
   DOMINANT_COLOR_PROB_THEME = 0.85;
@@ -85,6 +84,9 @@ function declareConstants() {
   MAX_SPEED = MIN_SPEED * 2;
   MAX_FORCE_RATIO = 0.025;
   CLOSE_ENOUGH_TARGET = GRID_UNIT * 7;
+
+  BASE_FORCE = GRID_UNIT;
+  FALLOFF = 3;
 
   WHITE = color(255);
   BLACK = color(0);
@@ -171,15 +173,31 @@ function getCurrentTheme() {
 }
 
 //-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+
+function mousePressed() {
+  if (mouseButton == LEFT) {
+    ps.explode(mouseX, mouseY);
+  }
+
+  if (mouseButton == RIGHT) {
+    ps.initCoordsIndexes();
+  }
+}
+
+//-------------------------------------------------------------------//
+
+function mouseDragged() {
+  if (mouseButton == LEFT) {
+    ps.explode(mouseX, mouseY);
+  }
+}
+
+//-------------------------------------------------------------------//
 
 function windowResized() {
   declareConstants();
 
   resizeCanvas(WIDTH, HEIGHT);
-}
-
-//-------------------------------------------------------------------//
-
-function mousePressed() {
-  ps.initCoordsIndexes();
 }
