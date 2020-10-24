@@ -86,7 +86,7 @@ function declareConstants() {
   CLOSE_ENOUGH_TARGET = GRID_UNIT * 7;
 
   BASE_FORCE = GRID_UNIT;
-  FALLOFF = 8;
+  FALLOFF = 20;
 
   WHITE = color(255);
   BLACK = color(0);
