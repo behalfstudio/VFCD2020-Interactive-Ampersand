@@ -86,7 +86,7 @@ function declareConstants() {
   CLOSE_ENOUGH_TARGET = GRID_UNIT * 7;
 
   BASE_FORCE = GRID_UNIT;
-  FALLOFF = 20;
+  FALLOFF = GRID_UNIT / 4;
   console.log(FALLOFF);
 
   WHITE = color(255);
