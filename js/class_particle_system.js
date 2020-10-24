@@ -206,7 +206,7 @@ class ParticleSystem {
   explode(x, y) {
     console.log("boom");
 
-    for (p of this.particles) {
+    for (var p of this.particles) {
       p.applyForce(x, y);
     }
   }
