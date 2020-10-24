@@ -13,6 +13,8 @@ var COMMUNITY = 3;
 
 //-------------------------------------------------------------------//
 
+var FRAME_RATE = 30;
+
 var WIDTH;
 var HEIGHT;
 
@@ -87,7 +89,6 @@ function declareConstants() {
 
   BASE_FORCE = GRID_UNIT / 2;
   FALLOFF = GRID_UNIT / 4;
-  console.log(FALLOFF);
 
   WHITE = color(255);
   BLACK = color(0);
@@ -127,7 +128,7 @@ function setup() {
   canvas = createCanvas(WIDTH, HEIGHT);
   canvas.id("particle-canvas");
 
-  frameRate(30);
+  frameRate(FRAME_RATE);
 
   //-------------------------------------------------------------------//
 
