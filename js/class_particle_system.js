@@ -1,3 +1,102 @@
+var PARTICLE_DIRECTORY = "http://vfcd.events/wp-content/uploads/2020/10/";
+
+//-------------------------------------------------------------------//
+
+var CULTURE = 0;
+var HERITAGE = 1;
+var INNOVATION = 2;
+var COMMUNITY = 3;
+
+//-------------------------------------------------------------------//
+
+var FRAME_RATE = 30;
+
+var WIDTH;
+var HEIGHT;
+
+var GRID_UNIT;
+var STROKE_WEIGHT;
+var DOMINANT_COLOR_PROB_THEME;
+var DOMINANT_COLOR_PROB_COMBINED;
+var DENSITY;
+
+var NOISE_STEP;
+var BLACK_THRESHOLD;
+var POSITIVE_THRESHOLD;
+
+//-------------------------------------------------------------------//
+
+var MIN_SPEED;
+var MAX_SPEED;
+var MAX_FORCE_RATIO;
+var CLOSE_ENOUGH_TARGET;
+
+var BASE_FORCE;
+var FALLOFF;
+
+//-------------------------------------------------------------------//
+
+var COLORS = [
+  // CULTURE
+  [
+    "#F5C022", // yellow
+    "#F7731B", // orange
+    "#149738", // green
+  ],
+
+  // HERITAGE
+  [
+    "#F59AB8", // light pink
+    "#D10353", // deep pink
+    "#283BBD", // deep blue
+  ],
+
+  // INNOVATION
+  [
+    "#6EB8F0", // light blue
+    "#283BBD", // deep blue
+    "#F7731B", // orange
+  ],
+];
+
+var WHITE, BLACK, OFF_WHITE, TRANSPARENT, LIGHT_GRAY;
+
+//-------------------------------------------------------------------//
+
+function declareConstants() {
+  WIDTH = windowWidth;
+  HEIGHT = windowHeight;
+
+  GRID_UNIT = (WIDTH + HEIGHT) / 150;
+
+  STROKE_WEIGHT = GRID_UNIT / 10;
+  DOMINANT_COLOR_PROB_THEME = 0.85;
+  DOMINANT_COLOR_PROB_COMBINED = 0.5;
+  DENSITY = 0.9;
+
+  NOISE_STEP = GRID_UNIT / 50;
+  BLACK_THRESHOLD = 0.38;
+  POSITIVE_THRESHOLD = 0.7;
+
+  MIN_SPEED = (WIDTH * 6) / 1500;
+  MAX_SPEED = MIN_SPEED * 2;
+  MAX_FORCE_RATIO = 0.025;
+  CLOSE_ENOUGH_TARGET = GRID_UNIT * 7;
+
+  BASE_FORCE = GRID_UNIT * 0.8;
+  FALLOFF = GRID_UNIT * 0.4;
+
+  WHITE = color(255);
+  BLACK = color(0);
+  OFF_WHITE = "#F6F5EE";
+  TRANSPARENT = color(0, 0);
+  LIGHT_GRAY = color(230);
+}
+
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+
 class ParticleSystem {
   constructor(theme_) {
     this.theme = theme_;
