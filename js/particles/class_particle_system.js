@@ -1,7 +1,3 @@
-var PARTICLE_DIRECTORY = "http://vfcd.events/wp-content/uploads/2020/10/";
-
-//-------------------------------------------------------------------//
-
 var CULTURE = 0;
 var HERITAGE = 1;
 var INNOVATION = 2;

@@ -1,4 +1,10 @@
-var AMPERSAND_IMG_DIRECTORY = "http://vfcd.events/wp-content/uploads/2020/10/";
+var AMPERSAND_IMG_DIRECTORY = "../images/particles/amp/";
+var PARTICLE_DIRECTORY = "../images/particles/components/";
+
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+//-------------------------------------------------------------------//
+
 var AMPERSAND_COUNT = 4;
 var ampersandImages = [];
 
