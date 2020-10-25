@@ -14,7 +14,7 @@ var ampersandImages = [];
 
 function preload() {
   for (var i = 0; i < AMPERSAND_COUNT; i++) {
-    var img = loadImage("amp_" + AMPERSAND_IMG_DIRECTORY + i + ".jpg");
+    var img = loadImage(AMPERSAND_IMG_DIRECTORY + "amp_" + i + ".jpg");
     ampersandImages.push(img);
   }
 }
