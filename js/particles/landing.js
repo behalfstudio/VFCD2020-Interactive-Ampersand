@@ -1,5 +1,7 @@
-var AMPERSAND_IMG_DIRECTORY = "images/particles/amp/";
-var PARTICLE_DIRECTORY = "images/particles/components/";
+console.log("running script");
+
+var AMPERSAND_IMG_DIRECTORY = "../images/particles/amp/";
+var PARTICLE_DIRECTORY = "../images/particles/components/";
 
 //-------------------------------------------------------------------//
 
