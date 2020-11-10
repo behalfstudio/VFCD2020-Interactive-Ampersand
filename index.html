@@ -3,34 +3,50 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VFCD 2020 Landing</title>
-    <style>
-      body {
-        padding: 0;
-        margin: 0;
-      }
-    </style>
+    <title>VFCD 2020 — Particle Drawing</title>
+
+    <link rel="stylesheet" href="style.css" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
 
     <script src="js/particles/class_particle_system.js"></script>
     <script src="js/particles/class_particle.js"></script>
     <script src="js/particles/class_particle_0_culture.js"></script>
     <script src="js/particles/class_particle_1_heritage.js"></script>
     <script src="js/particles/class_particle_2_innovation.js"></script>
+
+    <script src="draw.js"></script>
+    <script src="button.js"></script>
   </head>
 
-  <body style="height: 200vh">
-    <div
-      id="particle-background"
-      style="
-        width: 100vw;
-        height: 100vh;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-      "
-    ></div>
-    <script src="js/particles/landing.js"></script>
+  <body>
+    <div id="particle-container"></div>
+
+    <div id="header">
+      <div id="buttons">
+        <button id="btn0">Culture</button><button id="btn1">Heritage</button
+        ><button id="btn2">Innovation</button
+        ><button id="btn3">Community</button>
+      </div>
+    </div>
+
+    <div id="footer">
+      <button id="save">Save ↓</button>
+      <div id="description">
+        <p class="p1">
+          Drag your mouse/finger across the canvas to interact with the
+          particles
+        </p>
+        <p class="p2">
+          Designed & developed by
+          <a href="https://onbehalfof.studio">Behalf Studio</a>
+        </p>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,112 @@
+@font-face {
+  font-family: "Work Sans";
+  font-weight: 400;
+  src: url("fonts/worksans-regular-webfont.eot");
+  src: url("fonts/worksans-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("fonts/worksans-regular-webfont.woff2") format("woff2"),
+    url("fonts/worksans-regular-webfont.woff") format("woff"),
+    url("fonts/WorkSans-Regular.ttf") format("truetype"),
+    url("fonts/worksans-regular-webfont.svg") format("svg");
+}
+
+/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------*/
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Work Sans";
+  font-size: 13px;
+}
+
+/*-------------------------------------------------------------------*/
+
+#particle-container {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/*-------------------------------------------------------------------*/
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+
+#buttons {
+  margin-bottom: 50px;
+}
+
+/*-------------------------------------------------------------------*/
+
+#footer {
+  max-width: 300px;
+  width: auto;
+  height: auto;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  margin: 10px;
+}
+
+#description {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.p2 {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/*-------------------------------------------------------------------*/
+
+button {
+  font-family: "Work Sans";
+  font-size: 13px;
+  padding: 7px;
+  border-radius: 8px;
+  border: black solid 1px;
+  background: white;
+  transition: 0.25s;
+  color: black;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover,
+button:active,
+.active {
+  cursor: pointer;
+  background: black;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px #222222 solid;
+  padding-bottom: 2px;
+  transition: 0.25s padding-bottom;
+}
+
+a:hover {
+  padding-bottom: 5px;
+  transition: 0.25s padding-bottom;
+}

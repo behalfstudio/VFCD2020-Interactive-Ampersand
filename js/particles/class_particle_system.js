@@ -66,7 +66,9 @@ function declareConstants() {
   STROKE_WEIGHT = GRID_UNIT / 10;
   DOMINANT_COLOR_PROB_THEME = 0.85;
   DOMINANT_COLOR_PROB_COMBINED = 0.5;
-  DENSITY = 0.9;
+  DENSITY = 0.1;
+
+  TRAIL_RADIUS = GRID_UNIT * 5;
 
   NOISE_STEP = GRID_UNIT / 50;
   BLACK_THRESHOLD = 0.38;
@@ -95,8 +97,6 @@ class ParticleSystem {
   constructor(theme_) {
     this.theme = theme_;
 
-    this.img = ampersandImages[this.theme];
-
     switch (this.theme) {
       case CULTURE:
       case HERITAGE:
@@ -112,16 +112,16 @@ class ParticleSystem {
     this.particles = [];
 
     this.coordsIndexes = [];
-    this.initCoordsIndexes();
   }
 
   //-------------------------------------------------------------------//
 
-  initCoordsIndexes() {
+  trail(mX, mY) {
     noiseSeed(int(random(10000)));
 
     var noiseStep = NOISE_STEP;
-    var xOffset, yOffset;
+    var xOffset;
+    var yOffset;
 
     yOffset = 0;
     for (var i = 0; i < WIDTH / GRID_UNIT; i++) {
@@ -133,25 +133,17 @@ class ParticleSystem {
 
         var n = noise(xOffset, yOffset);
 
-        if (
-          x >= (WIDTH - HEIGHT) / 2 + HEIGHT * 0.05 &&
-          x <= HEIGHT + (WIDTH - HEIGHT) / 2 - HEIGHT * 0.05 &&
-          y >= HEIGHT * 0.05 &&
-          y <= HEIGHT - HEIGHT * 0.05
-        ) {
-          const [r, g, b] = ampersandImages[this.theme].get(
-            x - (WIDTH - HEIGHT) / 2,
-            y
-          );
+        if (dist(x, y, mX, mY) <= TRAIL_RADIUS) {
+          var n = noise(xOffset, yOffset);
 
-          if (r == 0 && (g == 0) & (b == 0)) {
+          if (dist(x, y, mX, mY) <= TRAIL_RADIUS / 2) {
             n += BLACK_THRESHOLD;
           }
-        }
 
-        if (n >= POSITIVE_THRESHOLD) {
-          if (random(1) <= DENSITY) {
-            this.coordsIndexes.push(x + y * WIDTH);
+          if (n >= POSITIVE_THRESHOLD) {
+            if (random(1) <= DENSITY) {
+              this.addParticle(x, y);
+            }
           }
         }
 
@@ -160,51 +152,21 @@ class ParticleSystem {
 
       yOffset += noiseStep;
     }
-
-    var particleCount = this.particles.length;
-    var particleIndex = 0;
-
-    while (this.coordsIndexes.length > 0) {
-      // Pick a random coordinate
-      var randomIndex = int(random(0, this.coordsIndexes.length));
-      var coordIndex = this.coordsIndexes[randomIndex];
-      this.coordsIndexes.splice(randomIndex, 1);
-
-      var x = coordIndex % WIDTH;
-      var y = coordIndex / WIDTH;
-
-      if (particleIndex < particleCount) {
-        var p = this.particles[particleIndex];
-        p.isDestroyed = false;
-
-        p.target.x = x;
-        p.target.y = y;
-
-        particleIndex++;
-      } else {
-        this.addParticle(x, y);
-      }
-    }
-
-    // Kill off any leftover particles
-    if (particleIndex < particleCount) {
-      for (var i = particleIndex; i < particleCount; i++) {
-        var p = this.particles[i];
-        p.kill();
-      }
-    }
   }
 
   //-------------------------------------------------------------------//
 
   run() {
-    bg.style.background = this.bgColor;
+    background(this.bgColor);
 
     for (var i = this.particles.length - 1; i >= 0; i--) {
       var p = this.particles[i];
       p.run();
 
-      if (p.isDead) {
+      if (
+        p.isDead &&
+        (p.pos.x < 0 || p.pos.x > WIDTH || p.pos.y < 0 || p.pos.y > HEIGHT)
+      ) {
         this.particles.splice(i, 1);
       }
     }
@@ -296,14 +258,6 @@ class ParticleSystem {
   destroySystem() {
     for (var i = this.particles.length - 1; i >= 0; i--) {
       this.killParticle(n);
-    }
-  }
-
-  //-------------------------------------------------------------------//
-
-  explode(x, y) {
-    for (var p of this.particles) {
-      p.applyForce(x, y);
     }
   }
 }

@@ -3,6 +3,9 @@ var MIN_PROGRESS = 0;
 var MIN_PROGRESS_STEP = 0.02;
 var MAX_PROGRESS_STEP = 0.05;
 
+var MAX_LIFESPAN = 50;
+var LIFESPAN_STEP = 0.1;
+
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
 //-------------------------------------------------------------------//
@@ -29,6 +32,7 @@ class Particle {
     this.particleColorIndex = particleColorIndex_;
     this.particleColor = particleColor_;
 
+    this.lifespan = 0;
     this.isDead = false;
 
     this.progress = int(random(MIN_PROGRESS * 100, MAX_PROGRESS * 100)) / 100.0;
@@ -88,6 +92,12 @@ class Particle {
     this.vel.add(this.acc);
     this.pos.add(this.vel);
     this.acc.mult(0);
+
+    // Particle gets old
+    this.lifespan += LIFESPAN_STEP;
+    if (this.lifespan >= MAX_LIFESPAN) {
+      this.kill();
+    }
   }
 
   //-------------------------------------------------------------------//
